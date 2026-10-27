@@ -1,0 +1,118 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), ui-serif, Georgia, serif;
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+:root {
+  color-scheme: light;
+  --background: #f4f1ea;
+  --foreground: #161512;
+  --card: #faf8f3;
+  --card-foreground: #161512;
+  --popover: #faf8f3;
+  --popover-foreground: #161512;
+  --primary: #161512;
+  --primary-foreground: #f4f1ea;
+  --secondary: #ebe6dc;
+  --secondary-foreground: #161512;
+  --muted: #ebe6dc;
+  --muted-foreground: #6b665d;
+  --accent: #8a6a44;
+  --accent-foreground: #f4f1ea;
+  --destructive: #9b2c2c;
+  --border: #ddd6ca;
+  --input: #cbc3b4;
+  --ring: #8a6a44;
+  --ink: #141311;
+  --ink-foreground: #ece7dd;
+  --radius: 0.25rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+    letter-spacing: 0.005em;
+    text-rendering: optimizeLegibility;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    letter-spacing: -0.015em;
+    font-feature-settings: 'liga', 'dlig', 'onum';
+  }
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+
+@utility caption {
+  font-family: var(--font-sans);
+  font-size: 9.5px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+@utility hairline {
+  border-width: 0.5px;
+}
+
+@utility section-y {
+  padding-block: 7rem;
+  @media (width >= 48rem) {
+    padding-block: 9rem;
+  }
+  @media (width >= 80rem) {
+    padding-block: 11rem;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+}
